@@ -10,7 +10,7 @@ import Foundation
 
 class APIKeys {
     
-    class func parseApplicationID() -> String { return "" }
-    class func parseClientID() -> String { return "" }
+    class func parseApplicationID() -> String { return "rFWXuTDZscVOpiXvVT5ZPBhayqRNZUwa2tQZJ09d" }
+    class func parseClientID() -> String { return "DhUX6QPNeZyh3tXcxuWWtQohSJ7f63FC5agaax6k" }
     
 }
