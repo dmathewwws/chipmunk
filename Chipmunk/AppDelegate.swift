@@ -14,21 +14,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
         Parse.setApplicationId(APIKeys.parseApplicationID(), clientKey: APIKeys.parseClientID())
         
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar1"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
-        }
+//        let testObject = PFObject(className: "TestObject")
+//        testObject["foo"] = "bar"
+//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+//            print("Object has been saved.")
+//        }
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if PFUser.currentUser() != nil { //user is logged into app
+            
+            let listVC = storyboard.instantiateViewControllerWithIdentifier("ListViewController")
+            
+            window?.rootViewController = listVC
+            window?.makeKeyAndVisible()
+            
+        }else {
+            
+            let signupVC = storyboard.instantiateViewControllerWithIdentifier("SignupViewController")
+            
+            window?.rootViewController = signupVC
+            window?.makeKeyAndVisible()
+        }
         
         return true
     }
