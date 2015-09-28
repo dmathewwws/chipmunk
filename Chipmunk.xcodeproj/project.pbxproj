@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		126E8ED41BB8784A00BECDBE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E8ED31BB8784A00BECDBE /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		126E8ED61BB897E000BECDBE /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126E8ED51BB897E000BECDBE /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
+		126E8ED81BB8AC2500BECDBE /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E8ED71BB8AC2500BECDBE /* ListTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		126E8EDA1BB8B2B300BECDBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E8ED91BB8B2B300BECDBE /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		129791BB1BB6F9B800A87545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129791BA1BB6F9B800A87545 /* AppDelegate.swift */; };
 		129791BD1BB6F9B800A87545 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129791BC1BB6F9B800A87545 /* SignupViewController.swift */; };
 		129791C01BB6F9B800A87545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 129791BE1BB6F9B800A87545 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		126E8ED31BB8784A00BECDBE /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		126E8ED51BB897E000BECDBE /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		126E8ED71BB8AC2500BECDBE /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		126E8ED91BB8B2B300BECDBE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		129791B71BB6F9B800A87545 /* Chipmunk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chipmunk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		129791BA1BB6F9B800A87545 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		129791BC1BB6F9B800A87545 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +84,10 @@
 				129791D01BB70DD800A87545 /* KeysForAPIs.swift */,
 				129791BC1BB6F9B800A87545 /* SignupViewController.swift */,
 				126E8ED31BB8784A00BECDBE /* ListViewController.swift */,
+				126E8ED71BB8AC2500BECDBE /* ListTableViewCell.swift */,
+				126E8ED91BB8B2B300BECDBE /* ProfileViewController.swift */,
 				129791BE1BB6F9B800A87545 /* Main.storyboard */,
+				126E8ED51BB897E000BECDBE /* Login.storyboard */,
 				129791C11BB6F9B800A87545 /* Assets.xcassets */,
 				129791C31BB6F9B800A87545 /* LaunchScreen.storyboard */,
 				129791C61BB6F9B800A87545 /* Info.plist */,
@@ -128,6 +137,12 @@
 				TargetAttributes = {
 					129791B61BB6F9B800A87545 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 2VGL7CT34X;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -154,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				126E8ED61BB897E000BECDBE /* Login.storyboard in Resources */,
 				129791C51BB6F9B800A87545 /* LaunchScreen.storyboard in Resources */,
 				129791C21BB6F9B800A87545 /* Assets.xcassets in Resources */,
 				129791C01BB6F9B800A87545 /* Main.storyboard in Resources */,
@@ -215,10 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				126E8EDA1BB8B2B300BECDBE /* ProfileViewController.swift in Sources */,
 				129791BD1BB6F9B800A87545 /* SignupViewController.swift in Sources */,
 				129791D11BB70DD800A87545 /* KeysForAPIs.swift in Sources */,
 				126E8ED41BB8784A00BECDBE /* ListViewController.swift in Sources */,
 				129791BB1BB6F9B800A87545 /* AppDelegate.swift in Sources */,
+				126E8ED81BB8AC2500BECDBE /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,10 +348,13 @@
 			baseConfigurationReference = 8FA50622E2603F17C9A6135F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Chipmunk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToyBoxMedia.Chipmunk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -342,10 +363,13 @@
 			baseConfigurationReference = EF471F71AA5D36C6FC98B91B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Chipmunk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ToyBoxMedia.Chipmunk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

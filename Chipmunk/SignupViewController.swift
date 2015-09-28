@@ -39,22 +39,21 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        if textField == passwordTextField {
-            let user = PFUser()
-            user.username = usernameTextField.text
-            user.password = passwordTextField.text
-            user.setObject(imageFile, forKey: "avatarImage")
-            user.signUpInBackgroundWithBlock({ (success, error) -> Void in
-                if success {
-                    print("\(user) signupe successfully")
-                }
-            })
-        }
-        
         return textField.resignFirstResponder()
-        
     }
+    
+    @IBAction func okButtonPressed(sender: UIButton) {
+        let user = PFUser()
+        user.username = usernameTextField.text
+        user.password = passwordTextField.text
+        user.setObject(imageFile, forKey: "avatarImage")
+        user.signUpInBackgroundWithBlock({ (success, error) -> Void in
+            if success {
+                print("\(user) signupe successfully")
+            }
+        })
+    }
+    
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         

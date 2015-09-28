@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AH3-od-a1A">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Signup View Controller-->
+        <scene sceneID="h8M-mG-2Nr">
+            <objects>
+                <viewController storyboardIdentifier="SignupViewController" id="AH3-od-a1A" customClass="SignupViewController" customModule="Chipmunk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a5W-QG-RtN"/>
+                        <viewControllerLayoutGuide type="bottom" id="fGj-eU-zPZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sm6-Y1-8qf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-tZ-Iys">
+                                <rect key="frame" x="225" y="40" width="150" height="150"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Fcw-gj-Jie"/>
+                                    <constraint firstAttribute="width" constant="150" id="qMX-eN-vpz"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tzD-nb-Oy6" appends="YES" id="86t-zh-ug9"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQz-94-nSd">
+                                <rect key="frame" x="60" y="210" width="480" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="AH3-od-a1A" id="5ql-YQ-YHI"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGf-uz-KMg">
+                                <rect key="frame" x="60" y="260" width="480" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="AH3-od-a1A" id="dex-s0-zme"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjO-Mf-Ae2">
+                                <rect key="frame" x="556" y="260" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="okButtonPressed:" destination="AH3-od-a1A" eventType="touchUpInside" id="wRn-SY-sHN"/>
+                                    <segue destination="Slo-OO-CLO" kind="show" id="FLD-7E-sgq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3IF-tZ-Iys" firstAttribute="centerX" secondItem="sm6-Y1-8qf" secondAttribute="centerX" id="0BH-Ef-cBc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KQz-94-nSd" secondAttribute="trailing" constant="40" id="6Mh-FW-CLg"/>
+                            <constraint firstItem="3IF-tZ-Iys" firstAttribute="top" secondItem="a5W-QG-RtN" secondAttribute="bottom" constant="20" id="Q8G-9K-OTD"/>
+                            <constraint firstItem="LGf-uz-KMg" firstAttribute="top" secondItem="KQz-94-nSd" secondAttribute="bottom" constant="20" id="Rnz-dE-8ip"/>
+                            <constraint firstItem="KQz-94-nSd" firstAttribute="leading" secondItem="sm6-Y1-8qf" secondAttribute="leadingMargin" constant="40" id="iHV-b5-wEC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LGf-uz-KMg" secondAttribute="trailing" constant="40" id="igT-2K-tsM"/>
+                            <constraint firstItem="KQz-94-nSd" firstAttribute="top" secondItem="3IF-tZ-Iys" secondAttribute="bottom" constant="20" id="omR-D2-h6O"/>
+                            <constraint firstItem="xjO-Mf-Ae2" firstAttribute="leading" secondItem="LGf-uz-KMg" secondAttribute="trailing" constant="16" id="pAH-t1-5Pd"/>
+                            <constraint firstItem="xjO-Mf-Ae2" firstAttribute="centerY" secondItem="LGf-uz-KMg" secondAttribute="centerY" id="rqb-tf-LcD"/>
+                            <constraint firstItem="LGf-uz-KMg" firstAttribute="leading" secondItem="sm6-Y1-8qf" secondAttribute="leadingMargin" constant="40" id="y65-uh-vZw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="LGf-uz-KMg" id="914-4a-Ppt"/>
+                        <outlet property="profileImageView" destination="3IF-tZ-Iys" id="fVY-r3-ilv"/>
+                        <outlet property="usernameTextField" destination="KQz-94-nSd" id="fOX-as-DN2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMy-eC-jhN" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tzD-nb-Oy6">
+                    <connections>
+                        <action selector="pressedProfileImageView:" destination="AH3-od-a1A" id="Fhg-3I-dcM"/>
+                        <outlet property="delegate" destination="AH3-od-a1A" id="7Vx-UT-LT1"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-58" y="20"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="yyo-a7-nln">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Slo-OO-CLO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rp1-Gy-1cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548.5" y="20"/>
+        </scene>
+    </scenes>
+</document>

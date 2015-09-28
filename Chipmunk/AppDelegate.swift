@@ -30,26 +30,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print("Object has been saved.")
 //        }
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         if PFUser.currentUser() != nil { //user is logged into app
             
-            let listVC = storyboard.instantiateViewControllerWithIdentifier("ListViewController")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let listVC = storyboard.instantiateInitialViewController()
             
             window?.rootViewController = listVC
             window?.makeKeyAndVisible()
             
         }else {
-            
-            let signupVC = storyboard.instantiateViewControllerWithIdentifier("SignupViewController")
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let signupVC = storyboard.instantiateInitialViewController()
             
             window?.rootViewController = signupVC
             window?.makeKeyAndVisible()
         }
         
+        let settings = UIUserNotificationSettings(forTypes:[UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
+        // Extract the notification data
+        if let notificationPayload = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+            
+            if let userId = notificationPayload["p"] as? String {
+                let targetUser = PFUser(withoutDataWithObjectId: userId)
+                
+                // Fetch photo object
+                targetUser.fetchIfNeededInBackgroundWithBlock {
+                    (user: PFObject?, error:NSError?) -> Void in
+                    if error == nil {
+                        if let profileUser = user as? PFUser {
+                            // Show photo view controller
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
+                            profileVC.user = profileUser
+                        }
+                    }
+                }
+            }
+        }
+        
         return true
     }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
 
+    }
+
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let installation = PFInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.addUniqueObject((PFUser.currentUser()?.objectId)!, forKey: "channels")
+        installation.saveInBackground()
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
