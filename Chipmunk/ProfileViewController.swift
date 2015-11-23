@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         let avatarImage = user?.objectForKey("avatarImage") as? PFFile
         avatarImage?.getDataInBackgroundWithBlock({ (data, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                avatarImageView?.image = UIImage(data: data!)
+                self.avatarImageView?.image = UIImage(data: data!)
             })
         })
         
